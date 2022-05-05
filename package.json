@@ -1,0 +1,28 @@
+{
+  "name": "014-Compras",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Wilson Santos <contato@wilsonsantos.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "commitizen-emoji": "^1.0.5",
+    "husky": "^7.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/commitizen-emoji"
+    },
+    "commitizenEmoji": {
+      "conventionalFormat": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "sh pre-commit"
+    }
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
