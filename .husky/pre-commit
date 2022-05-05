@@ -1,0 +1,21 @@
+#!/bin/bash
+
+red='\x1b[41m'
+nocolor='\x1b[0m'
+
+protected_branch='main'
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [ $protected_branch = $current_branch ]
+then
+    echo -e "${red}You are in the $current_branch,Blocked Branch${nocolor}"
+    read -p "Do you really want to do this? [y/n]" -n 1 -r < /dev/tty
+    echo
+    if echo $REPLY | grep -E '^[Yy]$' > /dev/null
+    then
+        exit 0 # Do run
+    fi
+    exit 1 # dont run
+else
+    exit 0 # Do run
+fi
